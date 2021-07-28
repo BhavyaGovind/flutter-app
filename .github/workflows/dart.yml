@@ -25,7 +25,6 @@ jobs:
           flutter-version: '2.0.5'
       - run: flutter pub get
       - run: flutter test
-      - name: Lint Ansible Playbook
       # replace "master" with any valid ref
       - uses: ansible/ansible-lint-action@master
         with:
