@@ -24,9 +24,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
-  appcenter:
-  appcenter_analytics:
-  appcenter_crashes:      
+       
 
 
   # The following adds the Cupertino Icons font to your application.

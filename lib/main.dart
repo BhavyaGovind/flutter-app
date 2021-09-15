@@ -1,11 +1,3 @@
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:appcenter/appcenter.dart';
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:appcenter_analytics/appcenter_analytics.dart';
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:appcenter_crashes/appcenter_crashes.dart';
-import 'package:flutter/foundation.dart';
-
 import 'package:flutter/material.dart';
 import './quiz.dart';
 import './result.dart';
@@ -22,39 +14,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _appSecret = "59106bfc-6cac-425e-97d0-1b00ef267852";
-  String _installId = "Unknown";
-  bool _areAnalyticsEnabled = false, _areCrashesEnabled = false;
-
-  _MyAppState() {
-    final ios = defaultTargetPlatform == TargetPlatform.iOS;
-    //_appSecret = ios ? "" : "";
-  }
+  
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    initPlatformState();
-  }
-
-  Future<void> initPlatformState() async {
-
     
-    await AppCenter.start(
-        _appSecret, [AppCenterAnalytics.id, AppCenterCrashes.id]);
-    if (!mounted) return;
-    var installId = await AppCenter.installId;
-
-    var areAnalyticsEnabled = await AppCenterAnalytics.isEnabled;
-    var areCrashesEnabled = await AppCenterCrashes.isEnabled;
-
-    setState(() {
-      _installId = installId;
-      _areAnalyticsEnabled = areAnalyticsEnabled;
-      _areCrashesEnabled = areCrashesEnabled;
-    });
   }
+
 
   final _questions = const [
     {
