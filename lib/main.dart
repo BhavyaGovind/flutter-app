@@ -16,7 +16,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final _questions = const [
     {
-      'questiontext': 'What\'s your favorite color?',
+      'questiontext': 'What is your favorite color?',
       'answers': [
         {'text': 'Yellow', 'score': 10},
         {'text': 'Blue', 'score': 5},
@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
       ]
     },
     {
-      'questiontext': 'what\'s your favourite animal?',
+      'questiontext': 'what is your favourite animal?',
       'answers': [
         {'text': 'Snake', 'score': 15},
         {'text': 'Dog', 'score': 5},
@@ -57,9 +57,9 @@ class _MyAppState extends State<MyApp> {
       _questionIndex = _questionIndex + 1;
       _totalScore += score;
     });
-    print('Answer Choose');
+    // print('Answer Choose');
     if (_questionIndex < _questions.length) {
-      print('We have more questions');
+      // print('We have more questions');
     }
   }
 
@@ -68,7 +68,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
-            title: Text('Simple Quiz App'),
+            title: const Text('Simple Quiz App'),
             backgroundColor: Colors.amber,
           ),
           body: (_questionIndex < _questions.length)

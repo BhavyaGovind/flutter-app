@@ -4,7 +4,7 @@ class Result extends StatelessWidget {
   final int finalScore;
   final VoidCallback resetHandler;
 
-  Result(this.finalScore, this.resetHandler);
+  const Result(this.finalScore, this.resetHandler);
 
   String get resultPhrase {
     if (finalScore <= 10) {
@@ -22,11 +22,11 @@ class Result extends StatelessWidget {
       child: Column(children: <Widget>[
         Text(
           resultPhrase,
-          style: TextStyle(
+          style: const TextStyle(
               color: Colors.blue, fontSize: 23, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
-        TextButton(onPressed: resetHandler, child: Text('Restart Quiz!'))
+        TextButton(onPressed: resetHandler, child: const Text('Restart Quiz!'))
       ]),
     );
   }

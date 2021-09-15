@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 class Question extends StatelessWidget {
   final String questionText;
 
-  Question(this.questionText);
+  const Question(this.questionText);
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       width: double.infinity,
       child: Text(
         questionText,
-        style: TextStyle(fontSize: 28),
+        style: const TextStyle(fontSize: 28),
         textAlign: TextAlign.center,
       ),
     );
