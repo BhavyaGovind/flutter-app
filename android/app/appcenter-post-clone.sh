@@ -15,20 +15,19 @@ export PATH=`pwd`/flutter/bin:$PATH
 flutter channel stable
 flutter doctor
 
-# Set APP_CENTER_VERSION_MODIFIER if you want to modify the version name
-# to x.y.z-${APP_CENTER_VERSION_MODIFIER}
-BUILD_NAME=$(grep -E '^version' pubspec.yaml | cut -d':' -f2 | tr -d '[:space:]')
-if [ ! -z "$APPCENTER_BUILD_ID" ]
-then
-  BUILD_NAME=${BUILD_NAME}.${APPCENTER_BUILD_ID}
-fi
-if [ ! -z "$APP_CENTER_VERSION_MODIFIER" ]
-then
-  BUILD_NAME=${BUILD_NAME}-${APP_CENTER_VERSION_MODIFIER}
-fi
-./update-app-settings.sh
+echo "Installed flutter to `pwd`/flutter"
 
-flutter build apk --release --build-name=${BUILD_NAME} -t lib/main.dart
+# build APK
+# if you get "Execution failed for task ':app:lintVitalRelease'." error, uncomment next two lines
+# flutter build apk --debug
+# flutter build apk --profile
+flutter build apk --release
 
-mkdir -p android/app/build/outputs/apk/
-mv build/app/outputs/flutter-apk/app-release.apk $_
+# if you need build bundle (AAB) in addition to your APK, uncomment line below and last line of this script.
+#flutter build appbundle --release --build-number $APPCENTER_BUILD_ID
+
+# copy the APK where AppCenter will find it
+mkdir -p android/app/build/outputs/apk/; mv build/app/outputs/apk/release/app-release.apk $_
+
+# copy the AAB where AppCenter will find it
+#mkdir -p android/app/build/outputs/bundle/; mv build/app/outputs/bundle/release/app-release.aab $_
