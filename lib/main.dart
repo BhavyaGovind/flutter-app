@@ -22,13 +22,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _appSecret = "";
+  String _appSecret = "59106bfc-6cac-425e-97d0-1b00ef267852";
   String _installId = "Unknown";
   bool _areAnalyticsEnabled = false, _areCrashesEnabled = false;
 
   _MyAppState() {
     final ios = defaultTargetPlatform == TargetPlatform.iOS;
-    _appSecret = ios ? "" : "";
+    //_appSecret = ios ? "" : "";
   }
 
   @override
@@ -39,6 +39,8 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> initPlatformState() async {
+
+    
     await AppCenter.start(
         _appSecret, [AppCenterAnalytics.id, AppCenterCrashes.id]);
     if (!mounted) return;
