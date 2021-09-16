@@ -46,7 +46,14 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
-
+    signingConfigs {
+       release {
+           keyAlias keystoreProperties['com.bhavya.govind']
+           keyPassword keystoreProperties['test']
+           storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+           storePassword keystoreProperties['test']
+       }
+    }
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
